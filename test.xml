@@ -1,0 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+
+<note>
+	<email>
+		<header>
+			<sender>abc@gmail.com
+			</sender>
+		</header>
+		<subject>
+			<topic>asda</topic>
+		</subject>	
+
+	</email>       
+ </note> 
+
+
