@@ -1,0 +1,56 @@
+Submitter name:Piyush Pilaniya
+IIT Ropar
+============================================================================================================================
+1. What does this program do? What are all condition it will deal with?
+
+	The program named xml.py will take an xml file as input in command line and then it will display if the given xml file is well formed or not based on the three condition given in the question.
+
+	My program will deal with all the condition mentioned in the question. 
+	
+	It will display "Not well formed" in the following cases:
+                a.) When it will not find proper end tag like that is end tag is missing like:
+			<xyz><ab></xyz>
+		b.) When it will find the overlapping condition like:
+			<xyz><ab></xyz></ab>
+		c.) When it will encounter an empty element tag with closing tag like:
+			<ab/></ab>
+		d.) When it will find the tag name out of range of a-z or A-Z like:
+			<32ab></32ab>
+		e.) When it will find that begin and end tag names do not match like:
+			<xyz></xyzwa>
+		f.) When it will find that there is not proper nesting
+		g.) When it will find that there is no single root element like:
+			<xyz></xyz><abc></abc>
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. A description of how this program works (i.e. its logic)
+
+	My program will first open the xml file and then read all the lines using the f.readlines() function. Then it will prepare a list which will store all the tags present in the file other than empty element tags. After I have a list of all the tags then I will check for the tag names if they are in the range of a-z and A-Z as required. Also we have missed to check the name of empty element tags like <avb/> these are checked when are preparing the list of all the tags. 
+
+	After that to validate the condition three I have checked if the first and last tags are same and the 1st one is begin and last one is end tag. If it is so then there is a single root element for this xml file.
+
+	To check for condition 1 and 2 I have used the concept similar to that we used in checking for the parenthesis using stack. I have made a list name checklist in which I keep on inserting opening tags and if I encounter a closing tag then match that with the last tag of the list if both matches then remove the last element from list and move on and if they does not match it means that two tags does not match and it is not well formed. If the list gets empty before the closing tags get over then it also means that the condition 1 is violated and hence like this it work for checking the well formedness of a xml file.
+
+	If any of the condition 1 or 2 is violated then I have printed that "Either of Condition 1 or 2 is violated" as my condition 1 and 2 are dealt at the same time.
+	If the condition 3 is violated then it prints "There is no single root element"
+	
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3. How to compile and run this program
+
+       Suppose test.xml is the xml file which we want to test.
+	Open the terminal and move to my directory then
+
+	Type in the terminal -> python xml.py test.xml
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4. What is present in my zip?
+
+	The zip file will contain:
+		xml.py -> the main source code
+		readme.txt -> which is this document
+		test.xml -> a sample test case which is well formed
+
+
+
